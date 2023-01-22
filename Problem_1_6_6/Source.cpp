@@ -22,6 +22,7 @@ int main()
 	sumkop_with_proc = sum_incop_proc + sumkop; // преобразование double в int (опасно ппц)
 	kop = sumkop_with_proc % 100;
 	rubl = (sumkop_with_proc - kop) / 100;
-	cout << rubl << " " << kop;
+	cout << rubl << " " << kop << endl << "New step for my view";
 	return 0;
+	
 }
