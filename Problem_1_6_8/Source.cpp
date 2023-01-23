@@ -1,5 +1,7 @@
 #include <iostream>
 #include <iomanip>
+// Определите среднее значение всех элементов последовательности, завершающейся числом 0.
+// setprecision(11) используется
 using namespace std;
 int main()
 {
