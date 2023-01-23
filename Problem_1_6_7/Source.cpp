@@ -12,8 +12,8 @@ using namespace std;
 //
 int main()
 {
-	double p = 0, x = 0, y = 0, k = 0, rubl_incop = 0, sumkop = 0, sumkop_with_proc = 0, rubl = 0, kop = 0;
-	double perem = 0;
+	int p = 0, x = 0, y = 0, k = 0, rubl_incop = 0, sumkop = 0, sumkop_with_proc = 0, rubl = 0, kop = 0;
+	int perem = 0;
 	double proc = 0;
 	int i = 0;
 	cin >> p >> x >> y >> k;
@@ -22,11 +22,12 @@ int main()
 	proc = p / 100;
 	while ( i < k )
 	{ 
-		perem = sumkop * proc + sumkop;
+		perem = sumkop * p / 100 + sumkop;
 		sumkop = perem;
 	    ++i;
 	}
-	cout << perem;
+	kop = perem % 100;
+	rubl = (perem - kop) / 100;
+	cout << rubl << " " << kop;
 	return 0;
-
 }
