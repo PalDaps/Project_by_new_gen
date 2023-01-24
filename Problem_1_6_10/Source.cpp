@@ -15,11 +15,18 @@ int main()
 	while ( i < n )
 	{
 		cin >> a;
-		++i;
 		form_2 = form_1 + a;
+		++i;
 		form_1 = (form_1 * x + a) * x;
 		
 	}
-	cout << form_2;
+	if ( n == 1 )
+	{ 
+	cout << form_1 + a;
+	}
+	else
+	{
+		cout << form_2;
+	}
 	return 0;
 }
