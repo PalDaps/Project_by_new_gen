@@ -4,7 +4,7 @@ int main()
 {
 	double a = 0, b = 0, c = 0, d = 0, x = 0, x1 = 0, x2 = 0, y = 0;
 		cin >> a >> b >> c;
-		if ( ( a == 0 && b == 0 && c == 0 ) || ( a == 0 && b == 0 ) )
+		if ( a == 0 && b == 0 && c == 0 )
 		{
 			cout << 3;
 		}
@@ -39,7 +39,7 @@ int main()
 				cout << 2 << " " << x1 << " " << x2;
 			}
 		}
-		else if ( d < 0 && a != 0 )
+		else if ( ( d < 0 && a != 0 ) || (a == 0 && b == 0 && c != 0))
 		{
 			cout << 0;
 		}
