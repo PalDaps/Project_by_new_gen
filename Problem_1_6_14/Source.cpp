@@ -16,15 +16,19 @@ int main()
 	opred = a * d - c * b;
 	opred_x = e * d - b * f;
 	opred_y = a * f - e * c;
-	if ( opred != 0 )
-	{ 
-	x = opred_x / opred;
-	y = opred_y / opred;
-	cout << 2 << " " << x << " " << y;
-	}
-	else
+	if (opred != 0)
 	{
-		if (opred_x == 0 && opred_y)
+		x = opred_x / opred;
+		y = opred_y / opred;
+		cout << 2 << " " << x << " " << y;
+	}
+	else if (opred == 0)
+	{
+		if (opred_x != 0 && opred_y != 0)
+		{
+			cout << 0;
+		}
+		else if (opred_x == 0 && opred_y)
 		{
 			if (a == 0 && b == 0 && c == 0 && d == 0)
 			{
@@ -32,12 +36,12 @@ int main()
 				{
 					cout << 0;
 				}
-				else
+				else if (e == 0 || f == 0)
 				{
 					cout << 5;
 				}
 			}
-			else
+			else if (a != 0 && b != 0 && c != 0 && d != 0)
 			{
 				if (a == 0 && c == 0)
 				{
@@ -46,13 +50,13 @@ int main()
 						y = e / b;
 						cout << 4 << " " << y;
 					}
-					else
+					else if (b == 0)
 					{
 						y = f / b;
 						cout << 4 << " " << y;
 					}
 				}
-				else
+				else if (a != 0 && c != 0)
 				{
 					if (b == 0 && d == 0)
 					{
@@ -61,13 +65,13 @@ int main()
 							x = e / a;
 							cout << 3 << " " << x;
 						}
-						else
+						else if (a == 0)
 						{
 							x = f / c;
 							cout << 3 << " " << x;
 						}
 					}
-					else
+					else if (b != 0 && d != 0)
 					{
 						if (b != 0)
 						{
@@ -75,7 +79,7 @@ int main()
 							k = -a / b;
 							cout << 1 << " " << k << " " << n;
 						}
-						else
+						else if (b = 0)
 						{
 							n = f / d;
 							k = -c / d;
@@ -85,11 +89,6 @@ int main()
 				}
 			}
 		}
-		else
-		{
-			cout << 0;
-		}
-		
 
 	}
 	return 0;
