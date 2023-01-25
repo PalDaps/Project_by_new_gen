@@ -2,11 +2,16 @@
 using namespace std;
 int main()
 {
-	double a = 0, b = 0, c = 0, d = 0, x = 0, x1 = 0, x2 = 0;
+	double a = 0, b = 0, c = 0, d = 0, x = 0, x1 = 0, x2 = 0, y = 0;
 		cin >> a >> b >> c;
-		if (a == 0 && b == 0 && c == 0)
+		if ( ( a == 0 && b == 0 && c == 0 ) || ( a == 0 && b == 0 ) )
 		{
 			cout << 3;
+		}
+		else if ( a == 0 && b != 0)
+		{
+			y = -c / b;
+			cout << 1 << " " << y;
 		}
 		d = pow(b, 2) - 4 * a * c;
 		if (d == 0 && a != 0 && b !=0 && c != 0)
