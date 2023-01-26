@@ -12,9 +12,9 @@ int main()
 		cin >> posled[i];
 	}
 	// processing the vector
-	for (int i = 0; i<n; i++)
+	for (int i = 0; i<n; i+=2)
 	{
-		cout << posled[i];
+		cout << " " << posled[i];
 	}
 	return 0;
 }
