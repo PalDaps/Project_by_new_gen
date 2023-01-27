@@ -2,9 +2,14 @@
 #include <cmath>
 #include <vector>
 using namespace std;
+
+// Print the value of the smallest of all positive elements 
+// in the array. It is known that the array has at 
+// least one positive element.
+
 int main()
 {
-	int n = 0, c = 0, time = 0, b = 0, safe = 0, min_of = 0;
+	int n = 0, c = 0, time = 0, b = 0, safe = 0;
 	int last = 0;
 	cin >> n;
 	vector<int> pepega;
@@ -12,31 +17,23 @@ int main()
 	for (int i = 0; i < n; ++i)
 	{
 		cin >> time;
-		if (time > 0)
+		if ( time > 0 )
 		{
-			if ( time < last )
-			{ 
-			c = min(time, last);
-			}
-			if (time > last)
-			{
-			b = min(time, last);
-			if (b > safe) // нужно ставить меньше так как не работает если увеличивать ввод послед
-			{
-				min_of = safe;
-			}
-			safe = b;
-			}
-			last = time;
-		}
 		pepega.push_back(time);
+		}
 		
 	}
+	int min_of = pepega[0];
 	// the processing
-	for (int i = 0; i < n; ++i)
+	int num_min = 0;
+	for (int i = 0; i < pepega.size(); ++i)
 	{
-
+		if ( pepega[i] < pepega[num_min] )
+		{
+			num_min = i;
+		}
+	
 	}
-	cout << c;
+	cout << pepega[num_min];
 	return 0;
 }
