@@ -32,6 +32,7 @@ int main()
 			}
 		}
 	}
+	cout << "ANIME!";
 
 	return 0;
 }
