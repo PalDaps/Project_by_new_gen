@@ -32,7 +32,6 @@ int main()
 		{
 			num_min = i;
 		}
-	
 	}
 	cout << pepega[num_min];
 	return 0;
