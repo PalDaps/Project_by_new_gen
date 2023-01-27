@@ -17,7 +17,7 @@ int main()
 	{
 		int temp = 0;
 		cin >> temp;
-		if (temp % 2 != 0 && temp % 2 > 0)
+		if ( temp % 2 != 0 ) // jesus man its not nice. OK?
 		{
 			pepega.push_back(temp);
 		}
