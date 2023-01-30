@@ -18,13 +18,22 @@ int main()
 		pepega.push_back(temp);
 	}
 	// the processing
-	for (int i = 0; i < n; ++i)
+	for (int i = 1; i < n; ++i)
 	{
-		if (pepega[i] != pepega[i + 1])
+		if (pepega[i] != pepega[i - 1])
 		{
-			g++;
+			c++;
 		}
 	}
-	cout << g;
+	g = pepega.size() - 1;
+	if ((pepega[g - 1] != pepega[g]) || (pepega[g - 1] == pepega[g]) )
+	{
+		cout << c + 1;
+	}
+	else 
+	{ 
+	cout << c;
+	}
+	
 	return 0;
 }
