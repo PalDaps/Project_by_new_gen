@@ -20,13 +20,8 @@ int main()
 	// the processing
 	for (int i = 0; i < n; ++i)
 	{
-		if (pepega[i] == pepega[i + 1])
+		if (pepega[i] != pepega[i + 1])
 		{
-			c++;
-		}
-		else if (pepega[i] != pepega[i + 1])
-		{
-			c = 0;
 			g++;
 		}
 	}
