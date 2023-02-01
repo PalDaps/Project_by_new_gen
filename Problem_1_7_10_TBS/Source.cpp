@@ -26,4 +26,5 @@ int main()
 		if (g) pepega.push_back(temp);	
 	}
 	cout << pepega.size();
+	return 0;
 }
