@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+// genius solution!
 int main()
 {
 	int n = 0;
