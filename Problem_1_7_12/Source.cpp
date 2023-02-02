@@ -20,17 +20,11 @@ int main()
 		cin >> temp;
 		future.push_back(temp);
 	}
-	// the processing
-	int safe = future[0];
-	for ( int i = 1; i < n; ++i)
-	{
-		future[i] = safe;
-		safe = future[i];
-	}
 	// the output
-	for (auto i : future)
+	cout << future[n - 1] << " ";
+	for (int i = 0; i < n-1; ++i )
 	{
-		cout << i << " ";
+		cout << future[i] << " ";
 	}
 	return 0;
 }
