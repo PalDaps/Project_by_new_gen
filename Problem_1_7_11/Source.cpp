@@ -19,14 +19,23 @@ int main()
 		cin >> temp;
 		future.push_back(temp);
 	}
-	// the proccesing
+	int safe = future.size();
+	if (future.size() % 2 == 0)
+	{
+		future.push_back(1);
+		n = future.size();
+	}
 	for (int i = 2; i < n; i+=2)
 	{
 		int box = future[i - 2];
 		future[i - 2] = future[i - 1];
 		future[i - 1] = box;
 	}
-	// the outputing
+	if (safe % 2 == 0)
+	{
+		future.erase(future.end() - 1);
+		n = future.size();
+	}
 	for (int i = 0; i < n; ++i)
 	{
 		cout << future[i] << " ";
