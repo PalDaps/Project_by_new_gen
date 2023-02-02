@@ -23,13 +23,13 @@ int main()
 	for (int i = 2; i < n; i+=2)
 	{
 		int box = future[i - 2];
-		future[i - 1] = future[i - 2];
-		future[i - 2] = box;
+		future[i - 2] = future[i - 1];
+		future[i - 1] = box;
 	}
 	// the outputing
 	for (int i = 0; i < n; ++i)
 	{
-		cout << future[i];
+		cout << future[i] << " ";
 	}
 
 	return 0;
