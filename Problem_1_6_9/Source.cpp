@@ -2,9 +2,7 @@
 #include <iomanip>
 #include <cmath>
 using namespace std;
-// Определите стандартное отклонение для данной последовательности 
-// натуральных чисел, завершающейся числом 0.
-// Тесты.
+// Determine the standard deviation for a given sequence of natural numbers ending with the number 0.
 // 1 7 9 0 -> 4.16333199893
 
 int main()
