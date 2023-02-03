@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
-// Определите среднее значение всех элементов последовательности, завершающейся числом 0.
-// setprecision(11) используется
+// Determine the average value of all elements of the sequence ending with the number 0.
 using namespace std;
 int main()
 {
