@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
+// Output all elements of the vector with even indexes
+
 int main()
 {
 	int n = 0;
