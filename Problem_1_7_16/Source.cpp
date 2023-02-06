@@ -27,9 +27,13 @@ int main()
 		chest_R.push_back(temp_R);
 	}
 	// the processing of all i think
-	for (int i = 0; i < s; ++i)
-	{
-		chest_I[i]
+	int i = 0;
+	for ( int i = 0; i<s; ++i )
+	{ 
+		for (chest_I[i] - 1; chest_I[i] - 1 <= chest_R[i] - 1; chest_I[i]++)
+		{
+		row[chest_I[i] - 1] = '.';
+		}
 	}
 	// the output vector of I
 	for (int i = 0; i < n; ++i)
