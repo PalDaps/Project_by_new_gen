@@ -14,14 +14,8 @@ int main()
 		cin >> temp;
 		for (int i = 0; i < pepega.size(); ++i)
 		{
-			if (pepega[i] == temp)
-			{
-				g = false;
-			}
-			else
-			{
-				g = true;
-			}
+			if (pepega[i] == temp) g = false;
+			else g = true;
 		}
 		if (g) pepega.push_back(temp);	
 	}
