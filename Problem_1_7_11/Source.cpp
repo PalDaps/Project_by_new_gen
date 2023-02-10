@@ -27,9 +27,9 @@ int main()
 	}
 	for (int i = 2; i < n; i+=2)
 	{
-		int box = future[i - 2];
-		future[i - 2] = future[i - 1];
-		future[i - 1] = box;
+		int box = future[i-2];
+		future[i-2] = future[i-1];
+		future[i-1] = box;
 	}
 	if (safe % 2 == 0)
 	{
