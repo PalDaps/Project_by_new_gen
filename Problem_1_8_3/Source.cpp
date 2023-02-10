@@ -25,7 +25,7 @@ int main()
 	{
 		for (int j = 0; j < m; ++j)
 		{
-			if (vector_two[i - 1][j - 1] < vector_two[i][j])
+			if (vector_two[i][j] > safe )
 			{
 				safe = vector_two[i][j];
 				index_i = i;
