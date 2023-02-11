@@ -34,14 +34,13 @@ int main()
         }
     }
     // the ouptut
-    for (int i = 0; i < n; ++i)
+    if (c == n * n - n)
     {
-        for (int j = 0; j < n; ++j)
-        {
-           cout << future[i][j] << " ";
-        }
-        cout << endl;
+        cout << "YES";
     }
-    cout << endl <<  c;
+    else
+    {
+        cout << "NO";
+    }
     return 0;
 }
