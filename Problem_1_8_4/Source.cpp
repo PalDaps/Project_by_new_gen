@@ -1,5 +1,9 @@
 #include <iostream>
 #include <vector>
+
+// The image of an asterisk using asterisks!
+//
+
 using namespace std;
 int main()
 {
