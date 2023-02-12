@@ -12,7 +12,7 @@ using namespace std;
 
 int main()
 {
-	int n = 0, m = 0, k = 0, c = 1;
+	int n = 0, m = 0, k = 0, c = 1, safe = 0;
 	cin >> n >> m;
 	if (n < 0 || m < 0 || n > 20 || m > 20)
 	{
@@ -42,7 +42,6 @@ int main()
 	// the processing 
 	for (int i = 0; i < n; ++i)
 	{
-		int safe = 0;
 		int number_line = i;
 		for (int j = 0; j < m; ++j)
 		{
@@ -54,16 +53,21 @@ int main()
 				{
 				 
 					if (future[i][first_null_po - 1] == future[i][first_null_po])
-				 
 					{
-					if ( number_line > safe )
-					{
-						c = 0;
-					}
+					 
+						if ( number_line > safe )
+					 
+						{
+							c = 0;
+						}
 				
 					c++;
-					amount_null_in_line.push_back(c);
+					amount_null_in_line.push_back(c); // early pusback
 					safe = number_line;
+					}
+					else if (future[i][first_null_po - 1] != future[i][first_null_po])
+					{
+						
 					}
 				}
 			}
