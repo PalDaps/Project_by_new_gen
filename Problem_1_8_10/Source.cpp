@@ -28,15 +28,6 @@ int main()
 			cin >> future[i][j];
 		}
 	}
-	// the ouput
-	for (int i = 0; i < n; ++i)
-	{
-		for (int j = 0; j < m; ++j)
-		{
-			cout << future[i][j] << " ";
-		}
-		cout << endl;
-	}
 	cin >> k;
 	// the processing 
 	for (int i = 0; i < n; ++i)
