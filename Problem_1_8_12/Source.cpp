@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
@@ -40,14 +41,7 @@ int main()
 	{
 		for (int j = 0; j < m; ++j)
 		{
-			if (future[i][j] < 10 )
-			{
-				cout << " " << future[i][j] << " ";
-			}
-			else
-			{ 
-			cout << future[i][j] << " ";
-			}
+			cout << setw(3) << future[i][j] << " ";
 		}
 		cout << endl;
 	}
