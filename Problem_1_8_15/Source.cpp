@@ -25,12 +25,11 @@ int main()
 			future_null[i][j] = 0;
 		}
 	}
-	int safe_j = 0, safe_i = 0;
-	for ( moove; moove < 3; moove++ )
+	int safe_j = 0, safe_i = 0, stringi = 0;
+	for ( moove; moove < 5; moove++ )
 	{ 
 	if (moove == 1)
 	    {
-	    	int stringi = 0;
 	    	for (int j = 0; j < m; ++j)
 	    	{
 	    		if (future[stringi][j] == 0 )
@@ -62,10 +61,24 @@ int main()
 				if (future[safe_i][j] == 0)
 				{
 					future[safe_i][j] = c;
+					safe_j = j;
 					c++;
 					moove = 4;
 				}
 			}
+		}
+		if (moove == 4)
+		{
+			for (int i = n - 1; i >= 0; i--)
+			{
+				if (future[i][safe_j] == 0)
+				{
+					future[i][safe_j] = c;
+					c++;
+					moove = 0;
+				}
+			}
+			stringi++;
 		}
 	}
 	// the processing
@@ -79,7 +92,5 @@ int main()
 		}
 		cout << endl;
 	}
-
-	
 	return 0;
 }
