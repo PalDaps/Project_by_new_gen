@@ -26,8 +26,8 @@ int main()
 		}
 	}
 	// the processing
-	int safe_i = 0, safe_j = 0;
-	for ( moove; moove < 4; moove++ )
+	int safe_i = 0, safe_j = 0, safe_j_4 = 0;
+	for ( moove; moove < 5; moove++ )
 	{ 
 	    if ( moove == 1 ) 
 	    { 
@@ -59,9 +59,24 @@ int main()
 			{
 				future[safe_j+2][j] = c;
 				c++;
+				safe_j_4 = j;
 			}
 			moove = 4;
 		}
+		if (moove == 4)
+		{
+			for (int i = safe_j+2; i >=0 ; i--)
+			{
+
+				if (future[i][safe_j_4] == 0);
+				{
+				  future[i][safe_j_4] = c;
+				  c++;
+				}
+			}
+			moove = 4;
+		}
+		
 	}
 
 
