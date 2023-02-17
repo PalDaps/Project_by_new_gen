@@ -26,8 +26,8 @@ int main()
 		}
 	}
 	// the processing
-	int safe_i = 0;
-	for ( moove; moove<3; moove++ )
+	int safe_i = 0, safe_j = 0;
+	for ( moove; moove < 4; moove++ )
 	{ 
 	    if ( moove == 1 ) 
 	    { 
@@ -45,13 +45,23 @@ int main()
 	    }
 	    if (moove == 2)
 	    {
-	    	for (int j = 0; j < n-1; ++j)
+	    	for (int j = 0; j < n-2; ++j)
 	    	{
-	    		future[j][safe_i] = c;
+	    		future[j+1][safe_i] = c;
 	    		c++;
+				safe_j = j;
 	    	}
-	    	moove = 2;
+	    	moove = 3;
 	    }
+		if (moove == 3)
+		{
+			for (int j = n; j >= 0; j--)
+			{
+				future[safe_j+2][j] = c;
+				c++;
+			}
+			moove = 4;
+		}
 	}
 
 
