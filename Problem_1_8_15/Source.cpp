@@ -16,72 +16,61 @@ int main()
 	int n = 0, m = 0, c = 1, b = 1, moove = 1;
 	cin >> n >> m;
 	vector<vector<int>> future(n, vector<int>(m));
-	vector<vector<int>> future_r(n, vector<int>(m));
+	vector<vector<int>> future_null(n, vector<int>(m));
 	// the filling vector
 	for (int i = 0; i < n; ++i)
 	{
 		for (int j = 0; j < m; ++j)
 		{
-			future_r[i][j] = 0;
+			future_null[i][j] = 0;
 		}
 	}
-	// the processing
-	int safe_i = 0, safe_j = 0, safe_j_4 = 0;
-	for ( moove; moove < 5; moove++ )
+	int safe_j = 0, safe_i = 0;
+	for ( moove; moove < 3; moove++ )
 	{ 
-	    if ( moove == 1 ) 
-	    { 
-	        for (int i = 0; i < n; ++i)
-	        {
-	        	for (int j = 0; j < m; ++j)
-	        	{
-	    			future[i][j] = c;
-	    			c++;
-	    			safe_i = j;
-	        	}
-	    		moove = 2;
-	    		break;
-	        }
+	if (moove == 1)
+	    {
+	    	int stringi = 0;
+	    	for (int j = 0; j < m; ++j)
+	    	{
+	    		if (future[stringi][j] == 0 )
+	    		{ 
+	    		    future[stringi][j] = c;
+	    		    c++;
+	    			safe_j = j;
+	    			moove = 2;
+	    		}
+	    	}
 	    }
 	    if (moove == 2)
 	    {
-	    	for (int j = 0; j < n-2; ++j)
+	    	for (int i = 0; i < n; ++i)
 	    	{
-	    		future[j+1][safe_i] = c;
-	    		c++;
-				safe_j = j;
+	    		if (future[i][safe_j] == 0)
+	    		{
+	    			future[i][safe_j] = c;
+	    			c++;
+					safe_i = i;
+	    			moove = 3;
+	    		}
 	    	}
-	    	moove = 3;
 	    }
 		if (moove == 3)
 		{
-			for (int j = n; j >= 0; j--)
+			for (int j = m-1; j >= 0; j--)
 			{
-				future[safe_j+2][j] = c;
-				c++;
-				safe_j_4 = j;
-			}
-			moove = 4;
-		}
-		if (moove == 4)
-		{
-			for (int i = safe_j+2; i >=0 ; i--)
-			{
-
-				if (future[i][safe_j_4] == 0)
+				if (future[safe_i][j] == 0)
 				{
-				  future[i][safe_j_4] = c;
-				  c++;
+					future[safe_i][j] = c;
+					c++;
+					moove = 4;
 				}
 			}
-			moove = 4;
 		}
-		
 	}
-
+	// the processing
 
 	// the output
-
 	for (int i = 0; i < n; ++i)
 	{
 		for (int j = 0; j < m; ++j )
