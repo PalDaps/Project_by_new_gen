@@ -68,7 +68,7 @@ int main()
 			for (int i = safe_j+2; i >=0 ; i--)
 			{
 
-				if (future[i][safe_j_4] == 0);
+				if (future[i][safe_j_4] == 0)
 				{
 				  future[i][safe_j_4] = c;
 				  c++;
