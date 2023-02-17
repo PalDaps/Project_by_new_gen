@@ -13,7 +13,7 @@ using namespace std;
 
 int main()
 {
-	int n = 0, m = 0, c = 1, b = 1, moove = 1;
+	int n = 0, m = 0, c = 1, moove = 1;
 	cin >> n >> m;
 	vector<vector<int>> future(n, vector<int>(m));
 	vector<vector<int>> future_null(n, vector<int>(m));
@@ -26,37 +26,38 @@ int main()
 		}
 	}
 	int safe_j = 0, safe_i = 0, stringi = 0;
-	for ( moove; moove < 5; moove++ )
-	{ 
-	if (moove == 1)
-	    {
-	    	for (int j = 0; j < m; ++j)
-	    	{
-	    		if (future[stringi][j] == 0 )
-	    		{ 
-	    		    future[stringi][j] = c;
-	    		    c++;
-	    			safe_j = j;
-	    			moove = 2;
-	    		}
-	    	}
-	    }
-	    if (moove == 2)
-	    {
-	    	for (int i = 0; i < n; ++i)
-	    	{
-	    		if (future[i][safe_j] == 0)
-	    		{
-	    			future[i][safe_j] = c;
-	    			c++;
+	// the processing
+	for (moove; moove < 5; moove++)
+	{
+		if (moove == 1)
+		{
+			for (int j = 0; j < m; ++j)
+			{
+				if (future[stringi][j] == 0)
+				{
+					future[stringi][j] = c;
+					c++;
+					safe_j = j;
+					moove = 2;
+				}
+			}
+		}
+		if (moove == 2)
+		{
+			for (int i = 0; i < n; ++i)
+			{
+				if (future[i][safe_j] == 0)
+				{
+					future[i][safe_j] = c;
+					c++;
 					safe_i = i;
-	    			moove = 3;
-	    		}
-	    	}
-	    }
+					moove = 3;
+				}
+			}
+		}
 		if (moove == 3)
 		{
-			for (int j = m-1; j >= 0; j--)
+			for (int j = m - 1; j >= 0; j--)
 			{
 				if (future[safe_i][j] == 0)
 				{
@@ -81,14 +82,12 @@ int main()
 			stringi++;
 		}
 	}
-	// the processing
-
 	// the output
 	for (int i = 0; i < n; ++i)
 	{
 		for (int j = 0; j < m; ++j )
 		{
-			cout << setw(3) << future[i][j] << " ";
+			cout << setw(6) << future[i][j] << " ";
 		}
 		cout << endl;
 	}
