@@ -6,11 +6,29 @@
 // Write a program that determines whether a given string 
 // is the correct IP address.
 //
+int Catching_exceptions(int codeNumberNull, std::string number_null)
+{
+	try
+	{
+		codeNumberNull = stoi(number_null);
+		if (codeNumberNull != number_null.length())
+			throw std::invalid_argument(number_null);
+		if (codeNumberNull < 0 || codeNumberNull >255)
+			throw std::out_of_range(number_null);
+		return codeNumberNull;
+	}
+	catch (...)
+	{
+		std::cout << "NO";
+		return 0;
+	}
+}
+
 
 int main()
 {
 	int pointPosition = 0, numbOfPoints = 0, indOfBegNumb = 0;
-	int codeNumberNull, codeNumberOne, codeNumberTwo, codeNumberThree;
+	int codeNumberNull = 0, codeNumberOne = 0, codeNumberTwo = 0, codeNumberThree  = 0;
 	std::vector<int> fourPosPoint;
 	std::string ipAddres = "255.255.255.255", number_null = "", number_one = "", number_two = "", number_three = "";
 	getline(std::cin, ipAddres);
@@ -36,12 +54,7 @@ int main()
 	{
 		number_null = number_null + ipAddres[indOfBegNumb];
 	}
-	codeNumberNull = stoi(number_null);
-	if (codeNumberNull < 0 || codeNumberNull >255)
-	{
-		std::cout << "NO";
-		return 0;
-	}
+	if (Catching_exceptions(codeNumberNull, number_null) == 0) return 0;
 	indOfBegNumb = fourPosPoint[0] + 1;
 	for (indOfBegNumb; indOfBegNumb < fourPosPoint[1]; indOfBegNumb++) // looking for the number up to the first point
 	{
