@@ -20,31 +20,37 @@ void put_one_in_field(std::vector<std::vector<int>>& field, int n, int i, int j)
 
 int main()
 {
-	int n = 0;
+	int n = 0, counter = 0;
 	std::cin >> n;
 	std::vector<std::vector<int>> field(n, std::vector<int>(n, 0));
 	for (int i = 0; i < n; ++i) // put the first queen in each sell
 	{
 		for (int j = 0; j < n; ++j)
 		{
-			for (int io = 0; io < n; ++io) // заполняем единичкой пространство относительно ячейки i, j
-			{
-				for (int jo = 0; jo < n; ++jo)
-				{
-					if (i == io || j == jo || i - j == io - jo || i + j == io + jo)
-						field[io][jo] = 1;
-				}
-			}
-
+			put_one_in_field(field, n, i, j);
 			for (int it = 0; it < n; ++it) // после заполнения вариантов ходов первого ферзя, ищем, то место, куда поставить второго ферзя
 			{
 				for (int jt = 0; jt < n; ++jt)
 				{
-					if (field[it][jt] == 0)
+					if (field[it][jt] == 0 && counter < 1)
 					{
-
+						counter++; // чтобы находило только первый 0
+						put_one_in_field(field, n, it, jt);
 					}
 				}
+			}
+			counter = 0;
+			for (int ith = 0; ith < n; ++ith) // ищем позицию для третьего ферзя
+			{
+				for (int jth = 0; jth < n; ++jth)
+				{
+					if (field[ith][jth] == 0 && counter < 1)
+					{
+						counter++; // чтобы находило только первый 0
+						put_one_in_field(field, n, ith, jth);
+					}
+				}
+
 			}
 			break;
 		}
