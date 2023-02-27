@@ -11,16 +11,11 @@ int Catching_exceptions(int codeNumberNull, std::string number_null)
 	try
 	{
 		codeNumberNull = stoi(number_null);
-		if (codeNumberNull != number_null.length())
-			throw std::invalid_argument(number_null);
-		if (codeNumberNull < 0 || codeNumberNull >255)
-			throw std::out_of_range(number_null);
 		return codeNumberNull;
 	}
 	catch (...)
 	{
-		std::cout << "NO";
-		return 0;
+		return 256;
 	}
 }
 
@@ -54,14 +49,17 @@ int main()
 	{
 		number_null = number_null + ipAddres[indOfBegNumb];
 	}
-	if (Catching_exceptions(codeNumberNull, number_null) == 0) return 0;
+	if (Catching_exceptions(codeNumberNull, number_null) == 256 || Catching_exceptions(codeNumberNull, number_null) < 0 || Catching_exceptions(codeNumberNull, number_null) > 255)
+	{
+		std::cout << "NO";
+		return 0;
+	}
 	indOfBegNumb = fourPosPoint[0] + 1;
 	for (indOfBegNumb; indOfBegNumb < fourPosPoint[1]; indOfBegNumb++) // looking for the number up to the first point
 	{
 		number_one = number_one + ipAddres[indOfBegNumb];
 	}
-	codeNumberOne = stoi(number_one);
-	if (codeNumberNull < 0 || codeNumberNull >255)
+	if (Catching_exceptions(codeNumberOne, number_one) == 256 || Catching_exceptions(codeNumberOne, number_one) < 0 || Catching_exceptions(codeNumberOne, number_one) > 255)
 	{
 		std::cout << "NO";
 		return 0;
@@ -71,8 +69,7 @@ int main()
 	{
 		number_two = number_two + ipAddres[indOfBegNumb];
 	}
-	codeNumberTwo = stoi(number_null);
-	if (codeNumberTwo < 0 || codeNumberNull >255)
+	if (Catching_exceptions(codeNumberTwo, number_two) == 256 || Catching_exceptions(codeNumberTwo, number_two) < 0 || Catching_exceptions(codeNumberTwo, number_two) > 255)
 	{
 		std::cout << "NO";
 		return 0;
@@ -82,14 +79,11 @@ int main()
 	{
 		number_three = number_three + ipAddres[indOfBegNumb];
 	}
-	codeNumberThree = stoi(number_null);
-	if (codeNumberThree < 0 || codeNumberNull >255)
+	if (Catching_exceptions(codeNumberThree, number_three) == 256 || Catching_exceptions(codeNumberThree, number_three) < 0 || Catching_exceptions(codeNumberThree, number_three) > 255)
 	{
 		std::cout << "NO";
 		return 0;
 	}
-	std::cout << codeNumberNull << " " << codeNumberOne << " " << codeNumberTwo << " " << codeNumberThree << " " << std::endl;
-	std::cout << number_null << " " << number_one << " " << number_two << " " << number_three << std::endl;
-	std::cout << numbOfPoints;
+	std::cout << "YES";
 	return 0;
 }
