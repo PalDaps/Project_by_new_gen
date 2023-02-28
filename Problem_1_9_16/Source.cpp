@@ -17,6 +17,20 @@ void put_one_in_field(std::vector<std::vector<int>>& field, int n, int i, int j)
 		}
 	}
 }
+void put_n_queen_in_first_null(std::vector<std::vector<int>>& field, int n, int counter)
+{
+	for (int ith = 0; ith < n; ++ith) // ищем позицию для третьего ферзя
+	{
+		for (int jth = 0; jth < n; ++jth)
+		{
+			if (field[ith][jth] == 0 && counter < 1)
+			{
+				counter++; // чтобы находило только первый 0
+				put_one_in_field(field, n, ith, jth);
+			}
+		}
+	}
+}
 
 int main()
 {
@@ -50,7 +64,20 @@ int main()
 						put_one_in_field(field, n, ith, jth);
 					}
 				}
-
+			}
+			counter = 0;
+			for (int ifo = 0; ifo < n; ++ifo) // ищем позицию для четвертого ферзя
+			{
+				for (int jfo = 0; jfo < n; ++jfo)
+				{
+					if (field[jfo][jfo] == 0 && counter < 1)
+					{
+						counter++; // чтобы находило только первый 0
+						put_one_in_field(field, n, ifo, jfo);
+					}
+					break;
+				}
+				break;
 			}
 			break;
 		}
