@@ -31,58 +31,23 @@ void put_n_queen_in_first_null(std::vector<std::vector<int>>& field, int n, int 
 		}
 	}
 }
-
-int main()
+int full_check_one(std::vector<std::vector<int>>& field, int n) // проверяем есть ли место для четвертого ферзя
 {
-	int n = 0, counter = 0;
-	std::cin >> n;
-	std::vector<std::vector<int>> field(n, std::vector<int>(n, 0));
-	for (int i = 0; i < n; ++i) // put the first queen in each sell
-	{
-		for (int j = 0; j < n; ++j)
+	int counter_full_check = 0;
+	for (int i = 0; i < n; i++ )
+	{ 
+		for (int j = 0; j < n; j++)
 		{
-			put_one_in_field(field, n, i, j);
-			for (int it = 0; it < n; ++it) // после заполнения вариантов ходов первого ферзя, ищем, то место, куда поставить второго ферзя
+			if (field[i][j] == 1)
 			{
-				for (int jt = 0; jt < n; ++jt)
-				{
-					if (field[it][jt] == 0 && counter < 1)
-					{
-						counter++; // чтобы находило только первый 0
-						put_one_in_field(field, n, it, jt);
-					}
-				}
+				counter_full_check++;
 			}
-			counter = 0;
-			for (int ith = 0; ith < n; ++ith) // ищем позицию для третьего ферзя
-			{
-				for (int jth = 0; jth < n; ++jth)
-				{
-					if (field[ith][jth] == 0 && counter < 1)
-					{
-						counter++; // чтобы находило только первый 0
-						put_one_in_field(field, n, ith, jth);
-					}
-				}
-			}
-			counter = 0;
-			for (int ifo = 0; ifo < n; ++ifo) // ищем позицию для четвертого ферзя
-			{
-				for (int jfo = 0; jfo < n; ++jfo)
-				{
-					if (field[jfo][jfo] == 0 && counter < 1)
-					{
-						counter++; // чтобы находило только первый 0
-						put_one_in_field(field, n, ifo, jfo);
-					}
-					break;
-				}
-				break;
-			}
-			break;
 		}
-		break;
 	}
+	return counter_full_check;
+}
+void output_vector(std::vector<std::vector<int>>& field, int n)
+{
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
@@ -91,6 +56,42 @@ int main()
 		}
 		std::cout << std::endl;
 	}
-	return 0;
+}
 
+void fill_null_vec(std::vector<std::vector<int>>& field, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			field[i][j] = 0;
+		}
+	}
+}
+
+int main()
+{
+	int n = 0, counter = 0, number_of_options = 0;
+	std::cin >> n;
+	std::vector<std::vector<int>> field(n, std::vector<int>(n, 0));
+	for (int i = 0; i < n; ++i) // put the first queen in each sell
+	{
+		for (int j = 0; j < n; ++j)
+		{
+			put_one_in_field(field, n, i, j);
+			put_n_queen_in_first_null(field, n, counter); // второй ферзь
+			counter = 0; 
+			put_n_queen_in_first_null(field, n, counter); // третий ферзь
+			counter = 0;
+			if (full_check_one(field, n) != n * n)
+			{
+				put_n_queen_in_first_null(field, n, counter);
+				number_of_options++;
+			}// четвертый ферзь
+			fill_null_vec(field, n); // заполняем вектор нулями для того, чтобы проверять следующую позицию
+		}
+	}
+	output_vector(field, n);
+	std::cout << number_of_options;
+	return 0;
 }
