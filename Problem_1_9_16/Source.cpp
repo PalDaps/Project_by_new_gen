@@ -79,16 +79,21 @@ int main()
 		for (int j = 0; j < n; ++j)
 		{
 			put_one_in_field(field, n, i, j);
-			put_n_queen_in_first_null(field, n, counter); // второй ферзь
-			counter = 0; 
-			put_n_queen_in_first_null(field, n, counter); // третий ферзь
-			counter = 0;
-			if (full_check_one(field, n) != n * n)
+			for (int ni = 2; ni <= n; ni++)
 			{
-				put_n_queen_in_first_null(field, n, counter);
-				number_of_options++;
-			}// четвертый ферзь
+				if (ni == n && full_check_one(field, n) != n * n)
+				{
+					put_n_queen_in_first_null(field, n, counter);
+					number_of_options++;
+				}// четвертый ферзь
+				else if ( ni < n)
+				{
+					put_n_queen_in_first_null(field, n, counter);
+				}
+				counter = 0;
+			}
 			fill_null_vec(field, n); // заполняем вектор нулями для того, чтобы проверять следующую позицию
+			
 		}
 	}
 	output_vector(field, n);
