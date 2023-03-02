@@ -1,6 +1,11 @@
 #include <iostream>
 #include <set>
 
+//
+// Given a list of integers, which can contain up to 100000 numbers. 
+// Determine how many different numbers are found in it.
+// 
+
 int main()
 {
 	std::set <int> numbers;
@@ -11,8 +16,5 @@ int main()
 		std::cin >> x;
 		numbers.insert(x);
 	}
-	for (auto now = numbers.begin(); now != numbers.end(); ++now)
-	{
-		std::cout << *now << " ";
-	}
+	std::cout << numbers.size();
 }
