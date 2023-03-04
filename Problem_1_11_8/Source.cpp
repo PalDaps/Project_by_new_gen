@@ -29,14 +29,15 @@ int main()
 		dict[en_word] = lat_words;
 		lat_words.clear();
 	}
-	it = dict.begin();
-	it_set = lat_words.begin();
-	for (auto now : dict)
+	for (auto it = dict.begin(); it != dict.end(); it++)
 	{
-		std::cout << now.first << " - ";
-		for (auto now_two : now.second)
+		std::cout << it->first << " - ";
+		int counter = 0;
+		for (auto it_set = it->second.begin(); it_set != it->second.end(); it_set++)
 		{
-			std::cout << now_two;
+			counter++;
+			std::cout << *it_set;
+			if (counter != it->second.size()) std::cout << ", ";
 		}
 		std::cout << std::endl;
 	}
