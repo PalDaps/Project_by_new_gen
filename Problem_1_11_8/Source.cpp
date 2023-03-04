@@ -27,18 +27,16 @@ int main()
 			lat_words.insert(lat_word);
 		}
 		dict[en_word] = lat_words;
+		lat_words.clear();
 	}
 	it = dict.begin();
 	it_set = lat_words.begin();
-	for (auto now : dict )
+	for (auto now : dict)
 	{
 		std::cout << now.first << " - ";
-		int count = 1;
-		for (auto some : now.second)
+		for (auto now_two : now.second)
 		{
-			std::cout << some;
-			count++;
-			if (count != now.second.size() + 1) std::cout << ", ";
+			std::cout << now_two;
 		}
 		std::cout << std::endl;
 	}
