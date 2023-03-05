@@ -21,7 +21,7 @@ int main()
 	{
 		std::string en_word = "", lat_word = "";
 		std::cin >> en_word;
-		for (int j = 0; j < 2; j++)
+		for (int j = 0; j < lat_words.size(); j++)
 		{
 			std::cin >> lat_word;
 			lat_words.insert(lat_word);
