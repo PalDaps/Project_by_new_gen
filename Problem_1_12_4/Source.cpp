@@ -32,5 +32,6 @@ int main()
 		}
 	}
 	for (int i = 0; i < numbersOfPairs; i++) std::cout << shoes[i] << " ";
+
 	return 0;
 }
