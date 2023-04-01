@@ -16,7 +16,8 @@ int main()
 		dist_max1++;
 		if ( before_n > before_before_n && before_n > n )
 		{
-		
+			counter_of_local_max++;
+			counter_of_max = counter_of_local_max;
 			if ( counter_of_max > 1 )
 			{ 
 				pos2 = dist_max1 - 1;
@@ -28,7 +29,6 @@ int main()
 				}
 			}
 			pos1 = dist_max1 - 1;
-			counter_of_local_max++;
 		}
 		before_before_n = before_n;
 		before_n = n;
@@ -38,10 +38,7 @@ int main()
 			if ( max <= n )
 			{ 
 				max = n;
-				if (pos1 == 0)
-				{
-					counter_of_max = 0;
-				}
+				if (pos1 == 0) counter_of_max = 0;
 		        counter_of_max++;
 			}
 	}
