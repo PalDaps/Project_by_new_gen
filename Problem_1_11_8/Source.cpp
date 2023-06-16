@@ -51,7 +51,7 @@ std::map<std::string, std::vector<std::string>> splitEngLat(std::vector<std::str
 }
 
 std::multimap<std::string, std::vector<std::string>> LatEng(std::map<std::string, std::vector<std::string>>& result, std::set<std::string> lat) {
-	std::multimap<std::string, std::vector<std::string>> LatEng;
+	std::multimap<std::string, std::vector<std::string>> res;
 	for (const auto& j : lat) {
 		std::string key = j;
 		std::vector<std::string> not_key;
@@ -61,47 +61,23 @@ std::multimap<std::string, std::vector<std::string>> LatEng(std::map<std::string
 				not_key.push_back(i.first);
 			}
 		}
-		LatEng.insert(std::make_pair(key, not_key));
+		res.insert(std::make_pair(key, not_key));
 	}
-	return LatEng;
+	return res;
 }
 
 int main()
 {
+	std::cout << "HELLO!" << std::endl;
 	int number_of_word = 0;
 	std::string line;
-	std::multimap<int, std::string> map;
 	std::vector<std::string> mem;
-	/*map.insert(std::make_pair("apple", "- malum, pomum, popula"));
-	map.insert(std::make_pair("fruit", "- baca, bacca, popum"));
-	map.insert(std::make_pair("punishment", "- malum, multa"));
-	for (const auto& i : map)
-		std::cout << i.first << " " << i.second << std::endl;*/
 	std::cin >> number_of_word;
 	std::cin.ignore(1, '\n');
 	for (int i = 1; i < number_of_word+1; i++) {
 		std::getline(std::cin, line);
 		mem.push_back(line);
 	}
-	/*for (const auto& i : mem)
-		std::cout << i << std::endl;*/
-	/*mem.push_back("apple - malum, pomum, popula");
-	mem.push_back("fruit - baca, bacca, popum");
-	mem.push_back("punishment - malum, multa");*/
-	//std::map<std::string, std::vector<std::string>> result = splitEngLat(mem);
-	//std::set<std::string> lat = InOrderLat(mem);
-	//// splitLine(mem[0]);
-	//
-	//for (const auto& j : lat) {
-	//	std::cout << j << " - ";
-	//	for (const auto& i : result) {
-	//		const std::vector<std::string>& values = i.second;
-	//		if (std::find(values.begin(), values.end(), j) != values.end()) {
-	//			std::cout << i.first << " ";
-	//		}
-	//	}
-	//	std::cout << std::endl;
-	//}
 	std::map<std::string, std::vector<std::string>> result = splitEngLat(mem);
 	std::set<std::string> lat = InOrderLat(mem);
 	std::multimap<std::string, std::vector<std::string>> Finish = LatEng(result, lat);
@@ -122,6 +98,5 @@ int main()
 		}
 		std::cout << std::endl;
 	}
-
 	return 0;
 }
